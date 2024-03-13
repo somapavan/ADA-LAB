@@ -1,4 +1,4 @@
-1. //selection sort
+//selection sort
 #include<iostream>
 using namespace std;
 void selectionsort(int arr[100],int n){
