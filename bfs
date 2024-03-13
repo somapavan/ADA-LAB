@@ -26,7 +26,6 @@ int main(){
     cin>>a[i][j];
     cout<<"enter the source vertex :"<<endl;
     cin>>source;
-    bsf(a,source,visitd,n);
     if(source<0 || source>=n){
         cout<<"invalid source node";
         return 1;
