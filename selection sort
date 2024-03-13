@@ -1,0 +1,28 @@
+1. //selection sort
+#include<iostream>
+using namespace std;
+void selectionsort(int arr[100],int n){
+    int i,j,min,temp;
+    for(i=0;i<=n-2;i++){
+        min=i;
+        for(j=i+1;j<=n-1;j++){
+            if(arr[j]<arr[min])
+            min=j;
+        }
+        temp=arr[min];
+        arr[min]=arr[i];
+        arr[i]=temp;
+    }
+}
+int main(){
+    int i,size,arr[100];
+    cout<<"enter the size of array:"<<endl;
+    cin>>size;
+    cout<<"enter the array elements:"<<endl;
+    for(i=0;i<size;i++)
+    cin>>arr[i];
+    selectionsort(arr,size);
+    cout<<"sorted array is:"<<endl;
+    for(i=0;i<size;i++)
+    cout<<arr[i]<<"\t";
+}
