@@ -1,0 +1,42 @@
+//bfs
+#include<iostream>
+#include<queue>
+using namespace std;
+void bfs(int a[20][20],int source,int visited[20],int n){
+    queue<int> q;
+    q.push(source);
+    while(!q.empty()){
+        int u=q.front();
+        q.pop();
+        for(int v=0;v<n;v++){
+            if(a[u][v]==1 && visited[v]==0){
+                q.push(v);
+                visited[v]=1;
+            }
+        }
+    }
+}
+int main(){
+    int a[20][20],source,visited[20],n,i,j;
+    cout<<"enter the no of vertices :"<<endl;
+    cin>>n;
+    cout<<"enter the adjacency matrix: "<<endl;
+    for(i=0;i<n;i++)
+    for(j=0;j<n;j++)
+    cin>>a[i][j];
+    cout<<"enter the source vertex :"<<endl;
+    cin>>source;
+    bsf(a,source,visitd,n);
+    if(source<0 || source>=n){
+        cout<<"invalid source node";
+        return 1;
+    }
+    visited[source]=1;
+    cout<<"reachability of nodes from " <<source<<endl;
+    for(i=0;i<=n;i++){
+        if(visited[i]!=0)
+        cout<<"node "<<i <<" is visited"<<endl;
+        else
+        cout<<"node "<<i<<" is not visited"<<endl;
+        }
+}
