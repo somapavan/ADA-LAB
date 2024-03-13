@@ -1,0 +1,53 @@
+//heap sort
+#include<iostream>
+using namespace std;
+void shiftdown(int a[],int k,int n);
+void heapsort(int a[],int n)
+{
+    int i,temp;
+    for(i=n-1;i>=0;i--)
+    shiftdown(a,i,n-1);
+    for(i=n-1;i>=1;i--)
+    {
+        temp=a[0];
+        a[0]=a[i];
+        a[i]=temp;
+        shiftdown(a,0,i-1);
+    }
+}
+void shiftdown(int a[],int k,int n)
+{
+    int j,done,temp;
+    done=0;
+    while((k*2<=n)&&(!done))
+    {
+        j=k*2;
+        if(j<n)
+        {
+            if(a[j]<a[j+1])
+            j=j+1;
+        }
+        if(a[k]<a[j])
+        {
+            temp=a[k];
+            a[k]=a[j];
+            a[j]=temp;
+            k=j;
+        }
+        else
+        done=1;
+    }
+}
+int main()
+{
+    int n,a[10],i;
+    cout<<"enter no of vertices :"<<endl;
+    cin>>n;
+    cout<<"enter the elements:"<<endl;
+    for(i=0;i<n;i++)
+    cin>>a[i];
+    heapsort(a,n);
+    cout<<"sorted elements:"<<endl;
+    for(i=0;i<n;i++)
+    cout<<a[i]<<"\t";
+}
