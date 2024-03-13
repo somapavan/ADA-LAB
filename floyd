@@ -1,0 +1,38 @@
+//floyd
+#include<iostream>
+using namespace std;
+int min(int a,int b){
+    if(a<b)
+    return a;
+    else
+    return b;
+}
+void floyd(int n,int d[10][10],int w[10][10]){
+    for(int i=0;i<n;i++)
+    for(int j=0;j<n;j++)
+    d[i][j]=w[i][j];
+    for(int k=0;k<n;k++){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                d[i][j]=min(d[i][j],d[i][k]+d[k][j]);
+            }
+        }
+    }
+}
+int main(){
+    int n,i,j,d[10][10],w[10][10];
+    cout<<"enter the no of vertices:"<<endl;
+    cin>>n;
+    cout<<"enter the cost matrix:"<<endl;
+    for(i=0;i<n;i++)
+    for(j=0;j<n;j++)
+    cin>>w[i][j];
+    floyd(n,d,w);
+    cout<<"all pairs shortest path matrix is:"<<endl;
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            cout<<d[i][j]<<"\t";
+        }
+        cout<<"\n";
+    }
+}
